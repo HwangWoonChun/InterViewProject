@@ -80,3 +80,28 @@
 * 옵셔널
   * 널이 될 수 도 있는 타입
   * 케이스 some, none
+
+* 옵셔널을 벗기는 방법
+  * 옵셔널 바인딩 : if let, guard let 구문을 통해 있으면 사용하고 없으면 사용 하지 않는다.
+  * 옵셔널 체이닝이란?
+    * 상위 프로퍼티로 부터 하위 프로퍼티 까지 옵셔널을 연속적으로 확인하고 중간에 하나라도 nil이 발견되면 nil이 된다.
+    
+* 앱 개발에 사용 해본 디자인 패턴
+  * Observer 패턴
+  * 델리게이트 패턴
+  * KVO 패턴
+  * 싱글턴 패턴
+  * 빌더 패턴 : 복잡한 객체의 생성을 그 객체의 표현과 분리하여, 생성 절차는 항상 동일하되 결과는 다르게 만드는 패턴입니다.
+  
+    ``` swift
+    class Director {
+        func makeLabel(builder: Builder) -> UILabel {
+            let build = builder
+            build.setText(with: "린생")
+            build.setTextColor(with: .black)
+            build.setFontSize(with: 40)
+            return build.label
+        }
+    }
+    let label = director.makeLabel(builder: ConCreateBuilder())
+    ```
