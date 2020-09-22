@@ -66,8 +66,13 @@
 * NSArray 와 Array 차이
   * NSArray는 여러 타입을 수용 할 수 있지만 Array는 불가능하다.
   
-* GCD - Dispatch Queue : 운영체제에서 스레드를 직접 관리하는 C 기반의 스레드 API
-  * Serial Dispatch Queue : 한 큐에 여러 Task를 넣어 처리
-  * Concurrent Dispatch Queue : 여러 스레드에 여러 Task를 시스템이 알아서 넣으며 이를 분산하여 처리
-  * sync : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리고 다음일 을 진행
-  * async : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리지 않고 다음일 을 진행
+* GCD : 운영체제에서 스레드를 직접 관리하는 C 기반의 스레드 API, 작업단위는 클로져이며 DispatchQueue가 이 Block 들을 관리한다.
+  * DispatchQueue
+    * Serial Dispatch Queue : 한 큐에 여러 Task를 넣어 처리
+    * Concurrent Dispatch Queue : 여러 스레드에 여러 Task를 시스템이 알아서 넣으며 이를 분산하여 처리
+    * sync : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리고 다음일 을 진행
+    * async : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리지 않고 다음일 을 진행
+
+* GCD 이전의 멀티스레딩 클래스
+  * OperationQueue
+  * Thread
