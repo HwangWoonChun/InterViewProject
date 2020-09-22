@@ -23,9 +23,9 @@
   * 메모리 관리 기법에 사용되는 키워드로 이 키워드로 지정된 객체는 메모리에 할당 받을 시 레퍼런스 카운트를 증가 시키지 않는다. Non Optional 이며 메모리 해제시 데이터는 남아있다. 순환참조로 인해 발생된 메모리 릭을 방지 하기 위해 사용된다.
   
 * 메모리 릭 해결 방법
-  * XCode memory graph
-  * Instrument Leak 도구
-  * deinit 을 통한 로그 체크
+ * XCode memory graph
+ * Instrument Leak 도구
+ * deinit 을 통한 로그 체크
 
 * Escaping Closure 란 무엇인가?
  * 메소드 파라미터로 전달받은 closure 를 메소드 라이프 사이클에서 끝내지 않고 메소드 밖에서 외부로 전달 하고 싶을 때 사용
