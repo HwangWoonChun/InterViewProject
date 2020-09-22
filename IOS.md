@@ -66,6 +66,9 @@
 * NSArray 와 Array 차이
   * NSArray는 여러 타입을 수용 할 수 있지만 Array는 불가능하다.
   
-* 직렬 vs 병렬
-
-* 동기 vs 
+* GCD - Dispatch Queue : 운영체제에서 스레드를 직접 관리하는 C 기반의 스레드 API
+  * Serial Dispatch Queue : 한 큐에 여러 Task를 넣어 처리
+  * Concurrent Dispatch Queue : 여러 스레드에 여러 Task를 시스템이 알아서 넣으며 이를 분산하여 처리
+  * sync : 다른 
+  * async
+  * async
