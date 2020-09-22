@@ -91,8 +91,19 @@
   * 델리게이트 패턴
   * KVO 패턴
   * 싱글턴 패턴
-  * 빌더 패턴 : 복잡한 객체의 생성을 그 객체의 표현과 분리하여, 생성 절차는 항상 동일하되 결과는 다르게 만드는 패턴입니다.
-  
+  * 퍼사드 패턴 : 여러 복잡한 서브 클래스가 존재하고 클라이언트 클래스는 이를 직접 접근하지 않고 퍼사드에 접근하여 필요한 것을 사용하는 디자인 패턴
+  * 빌더 패턴 : 복잡한 객체의 생성을 그 객체의 표현과 분리하여, 생성 절차는 항상 동일하되 결과는 다르게 만드는 패턴
+
+    ``` swift
+    let labelView: UILabel = {
+       let label = UILabel()
+       label.text = "린생"
+       label.textColor = .black
+       label.font = .systemFont(sizeOf: 20)
+       return label    
+    }()
+    ```
+    
     ``` swift
     class Director {
         func makeLabel(builder: Builder) -> UILabel {
@@ -103,5 +114,12 @@
             return build.label
         }
     }
-    let label = director.makeLabel(builder: ConCreateBuilder())
+    //일반
+    let label1 = director.makeLabel(builder: ConCreateBuilder())
+    //체이닝형태
+    private let label2: UILabel = ConCreateBuilder()
+        .setText(with: "린생 2")
+        .setTextColor(with: .red)
+        .setFontSize(with: 30)
+        .label
     ```
