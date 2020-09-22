@@ -41,3 +41,17 @@
 
 * content compression resistance priority
   * 컨텐츠의 고유 사이즈가 스스로 감싸 안아 작아지기를 거부한다. priority 가 높을 수록 높이, 폭이 작아지는 것을 우선적으로 막는다.
+
+* 어플리케이션 라이프 사이클
+  * not running
+  * inactive
+  * active
+  * background
+  * suspended
+  
+* FallThrough
+  * swift 의 스위치 케이스문에서 사용되며 이 키워드가 있는 코드 위치까지 케이스에 걸리지 않더라도 무조건 실행
+  
+* 프로토콜
+  * swift 의 스위치 케이스문에서 사용되며 이 키워드가 있는 코드 위치까지 케이스에 걸리지 않더라도 무조건 실행
+  
