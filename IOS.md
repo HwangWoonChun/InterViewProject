@@ -76,3 +76,6 @@
 * GCD 이전의 멀티스레딩 클래스
   * OperationQueue
   * Thread
+
+* 옵셔널
+  * 널이
