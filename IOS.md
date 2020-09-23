@@ -124,8 +124,13 @@
         .setFontSize(with: 30)
         .label
     ```
+* 의존성 
+  * 코드에서 두 클래스간의 관계를 말한다. 하나의 모듈이 바뀌면 의존한 다른 클래스 까지 변경이 이루어진다. 이렇게 되면 정확성이나 테스트가 힘들어진다.
+  
 * 앱 아키택쳐
   * MVC : Model, View, Controller 3개 구조로 나누고 사용자 액션 > 컨트롤러 모델 업데이트 > 컨트롤러 모델을 나타내줄 뷰 선택 > 뷰 갱신
     * View - Model 의 높은 의존성 > 어플리케이션이 커질 수 록 복잡
+    * 
+    
   * MVP : Model, View, Presenter 3개 구조로 나누고 사용자 액션 > 뷰는 데이터를 Presenter 에게 요청 > Presenter 모델에게 데이터 요청 > 모델 Presenter에게 데이터 전달 > Presenter는 View 에게 데이터 전달 > View 갱신
     * View - Model 의 의존성은 해결, View - Presenter 의 높은 의존성
