@@ -142,3 +142,11 @@
 
   * ReactorKit : Flux + Reactive Programming 컨샙이며, 사용자 액션 과 뷰 상태를 한 스트림으로 놓고 각각의 계층 view, action, reactor, state 에 옵저버가 전달 해주는 디자인 패턴이다.
     * View > Action > Mutate > Mutation > Reduce > State > View
+
+* clipsToBounds vs maskToBounds
+  * clipsToBounds : true일때 내용들과 서브뷰들은 뷰의 테두리를 기준으로 잘리게 된다. 기본값은  false
+  * maskToBounds : true 일때 서브레이어들은 레이어의 테두를 기준으로 잘리게 된다. 기본값은 false
+  
+* layer vs View
+  * layer : CoreAnimation class, 복잡한 애니메이션, 포퍼먼스 등이 필요할 때 UIView 대신 사용
+  * view : UIKit class, 단순 애니메이션 포퍼먼스에 대한 요구가 크지 않는 경우 사용
