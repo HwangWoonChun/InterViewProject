@@ -86,4 +86,4 @@
 * MVP, MVC
   * MVC : Controller와 View는 1:n 관계, 컨트롤러가 중간에서 모델과 뷰를 중재하는 구조
   * MVP : Presenter와 View는 1:1관계, Presenter가 뷰와 모델을 컨트롤하여 뷰와 모델의 의존성을 없앰
-  * MVP : ViewModel과 View는 1:1관계, Presenter가 뷰와 모델을 컨트롤하여 뷰와 모델의 의존성을 없앰
+  * MVVM : ViewModel과 View는 1:n 관계, 뷰모델이 뷰와 비동기 로직을 이용하여 데이터를 전달하고 받는 
