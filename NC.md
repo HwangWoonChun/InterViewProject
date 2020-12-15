@@ -100,3 +100,9 @@
   * publish subject : 빈값으로 시작
   * behavior subject : 초기값으로 시작
   * relay subejct : 버퍼 사이즈 두고 초기화 값으로 시작, 버퍼 사이즈 만큼 최근 데이터 방출
+
+* swift 5.3 (11.11)
+  * 런타임시 더 낮은 힙 메모리 오버헤드를 가짐 1/3 배
+  * 바이너리 사이즈 줄임
+  * 빌드 시간 단축
+  * didSet 에서 oldValue 참조 하지 않으면 didSet 동작 하지 않음
