@@ -150,3 +150,9 @@
 * layer vs View
   * layer : CoreAnimation class, 복잡한 애니메이션, 포퍼먼스 등이 필요할 때 UIView 대신 사용
   * view : UIKit class, 단순 애니메이션 포퍼먼스에 대한 요구가 크지 않는 경우 사용
+
+* NSCache
+
+* @escaping 있을때 없을때
+
+* 다이나믹, 폰트
