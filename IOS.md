@@ -152,9 +152,20 @@
   * view : UIKit class, 단순 애니메이션 포퍼먼스에 대한 요구가 크지 않는 경우 사용
 
 * NSCache
+  * 메모리에 캐싱하는 기능을 하는 클래스로 메모리가 부족할때 자동으로 버린다. key, value pattern 으로 구성되어 있다.
 
-* @escaping 있을때 없을때
+* @escaping
+  * 함수 종료 시점에 함수 외부에 클로져를 전달 혹은 저장하기 위해 쓰이는 
 
 * 다이나믹, 폰트
+  * systemFont 대신 preferredFont 사용하면 시스템 설정에 지정된 폰트대로 다이나믹한 폰트 제공
 
 * lazy
+  * 변수를 사용하기 전까진 초기화 및 연산되지 않는다. 무조건 var 타입, 메모리 낭비를 막을 수 있다.
+
+* CGAffineTransform
+  * 뷰 프레임을 계산하지 않고 2D 그래픽을 그릴 수 있는 구조체
+
+* anmiate option : duration, delay, usingSpringWithDamping, initialSpringVelocity
+  * 진동 폭 : usingSpringWithDamping 0 에 가까울 수록 크다.
+  * 진독 속도 : initialSpringVelocity 0 에 가까울 수록 크다.
