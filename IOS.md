@@ -180,3 +180,5 @@
 * PublishRelay : RxSwift인 Subject와는 다르게 Relay는 RxCocoa의 클래스 입니다. PublishSubject의 특성처럼 구독 이후의 발생하는 이벤트들만 알 수 있습니다.
 
 * ~Subject는 .completed, .error의 이벤트가 발생하면 subscribe가 종료되는 반면, ~Relay는 .completed, .error를 발생하지 않고 Dispose되기 전까지 계속 작동하기 때문에 UI Event에서 사용하기 적절합니다.
+
+* codable : json을 특정 타입으로 디코딩, 특정타입을 json으로 인코딩을 지원하는 프로토콜
