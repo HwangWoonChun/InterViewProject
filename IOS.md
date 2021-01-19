@@ -157,8 +157,8 @@
   * maskToBounds : true 일때 서브레이어들은 레이어의 테두를 기준으로 잘리게 된다. 기본값은 false
   
 * layer vs View
-  * layer : CoreAnimation class, 복잡한 애니메이션, 포퍼먼스 등이 필요할 때 UIView 대신 사용
-  * view : UIKit class, 단순 애니메이션 포퍼먼스에 대한 요구가 크지 않는 경우 사용
+  * layer : 별도의 쓰래드에서 GPU 를 사용해 UI 를 직접 그림
+  * view : 메인 쓰레드에서 CPU 를 사용해 UI 를 그림
 
 * NSCache
   * 메모리에 캐싱하는 기능을 하는 클래스로 메모리가 부족할때 자동으로 버린다. key, value pattern 으로 구성되어 있다.
