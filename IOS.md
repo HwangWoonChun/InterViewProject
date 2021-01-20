@@ -187,7 +187,7 @@
 * CGAffineTransform
   * 뷰 프레임을 계산하지 않고 2D 그래픽을 그릴 수 있는 구조체
 
-* anmiate option : duration, delay, usingSpringWithDamping, initialSpringVelocity
+* anmiate option : duration(애니메이션 진행 시간 - 초 동안), delay(지연시간), usingSpringWithDamping, initialSpringVelocity
   * 진동 폭 : usingSpringWithDamping 0 에 가까울 수록 크다.
   * 진독 속도 : initialSpringVelocity 0 에 가까울 수록 크다.
 
