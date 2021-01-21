@@ -1,5 +1,19 @@
 # InterViewProject
 
+* [weak self] 써야되는 이유
+
+* 넌블러킹, 블러킹
+
+* 비동기, 동기
+
+* Synchronous / Asynchronous
+
+* Type.self 는 뭔지? self. 과의 차이
+
+* 빌더 패턴에 대한 확실한 개념
+
+* final을 쓰는 이유
+
 * scene delegate
   * iOS 13 이상에서는 씬 델리게이트(scene delegate)가 앱 델리게이트의 일부 역할을 담당합니다. 중요한 것은 window의 개념이 scene 개념으로 대체된다는 것입니다. 앱에는 둘 이상의 scene이 있을 수 있으며 이제 scene은 앱의 사용자 인터페이스 및 콘텐츠의 배경으로 사용됩니다. 특히 재미있는 점은 scene이 있는 하나의 앱을 갖는 개념은 iOS 및 iPadOS에서 다중 창 앱을 빌드할 수 있습니다. 
 
