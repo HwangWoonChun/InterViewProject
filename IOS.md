@@ -33,7 +33,7 @@
     let someInstance: SomeBaseClass = SomeSubClass()
     //컴파일 시 엔 SomeBaseClass 이지만
     //런타임 시 엔 SomeSubClass 타입 이다.
-    ``` swift
+    ```
 
 * Strong Reference Cycle(강력 순환 참조)
   * 두 클래스가 있다고 가정하자, A라는 클래스는 B 타입의 프로퍼티를, B라는 클래스는 A 타입의 프로퍼티를 가지고 있다고 할때, A, B 인스턴스를 메모리에 해제시 A, B의 인스턴스에 접근할 인스턴스가 없기 때문에 각 클래스가 들고 있는 프로퍼티에 누수가 발생한다. 해결방법은 weak 인데, 한번더 생각해보자.
