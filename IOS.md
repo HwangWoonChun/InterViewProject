@@ -1,5 +1,40 @@
 # InterViewProject
 
+* 메타타입
+  * 인스턴스를 이용하여 클래스의 클래스 메소드, 클래스 프로퍼티에 접근하려면 type(of: instance) 를 함수로 접근 할 수 있는 데 이것을 메타타입이라 한다.
+
+    ``` swift
+    struct Medium {
+        static let author = "naljin"
+        func postArticle(name: String) {}
+    }
+
+    let blog: Medium = Medium()
+    let something = type(of: blog) // Medium은 인스턴스의 타입, Medium.Type은 클래스, 구조체, 프로토콜의 그 자체의 유형
+    ```
+  * 메타타입은 2가지 방법으로 쓰인다.
+    * 런타임 시 type(of:)
+    * 컴파일 시 .self
+    
+  * 그렇다면 컴파일과 런타임시에 클래스 접근이 어떻게 다른가?
+
+    ``` swift
+    class SomeBaseClass {
+        class func printClassName() {
+            print("SomeBaseClass")
+        }
+    }
+    class SomeSubClass: SomeBaseClass {
+        override class func printClassName() {
+            print("SomeSubClass")
+        }
+    }
+    
+    let someInstance: SomeBaseClass = SomeSubClass()
+    //컴파일 시 엔 SomeBaseClass 이지만
+    //런타임 시 엔 SomeSubClass 타입 이다.
+    ``` swift
+
 * Strong Reference Cycle(강력 순환 참조)
   * 두 클래스가 있다고 가정하자, A라는 클래스는 B 타입의 프로퍼티를, B라는 클래스는 A 타입의 프로퍼티를 가지고 있다고 할때, A, B 인스턴스를 메모리에 해제시 A, B의 인스턴스에 접근할 인스턴스가 없기 때문에 각 클래스가 들고 있는 프로퍼티에 누수가 발생한다. 해결방법은 weak 인데, 한번더 생각해보자.
   
