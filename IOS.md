@@ -1,5 +1,7 @@
 # InterViewProject
 
+* 큐는 dequeue enequeue 스택은 팝 푸쉬 용어 까먹지 말자
+
 * WWDC2020
   * IOS 14 Widget 기능 추가
   
