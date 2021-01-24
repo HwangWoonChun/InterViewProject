@@ -1,5 +1,7 @@
 # InterViewProject
 
+* 물리계층 > 데이터 링크 계층 > 네트워크 > 전송 > 세션 > 프레젠테이션(표현) > 어플리케이션 
+
 * 큐는 dequeue enequeue 스택은 팝 푸쉬 용어 까먹지 말자
 
 * WWDC2020
