@@ -1,17 +1,47 @@
 # InterViewProject
 
 * 메타타입
-  * 인스턴스를 이용하여 클래스의 클래스 메소드, 클래스 프로퍼티에 접근하려면 type(of: instance) 를 함수로 접근 할 수 있는 데 이것을 메타타입이라 한다.
+  * 스위프트는 타입을 아주 중요하게 다루는 언어 어느 정도냐면.. 심지어 타입에도 타입이 있을 정도지요!! 그리고 이 타입의 타입을 메타타입이라고 부릅니다.
 
     ``` swift
-    struct Medium {
-        static let author = "naljin"
-        func postArticle(name: String) {}
+    class MyCell: UITableViewCell { ... }
+    // MyCell이란 이름의 xib파일도 있음 
+
+    let myCellNib = UINib(nibName:"MyCell", bundle: nil)
+    tableView.register(myCellNib, forCellReuseIdentifier: "MyCell")
+
+    ---
+
+    class YourCell: UITableViewCell { ... }
+    // YourCell이란 이름의 xib파일도 있음
+    let yourCellNib = UINib(nibName:"YourCell", bundle: nil)
+    tableView.register(yourCellNib, forCellReuseIdentifier: "YourCell")
+
+    // 기타 등등....
+    ```
+  * 위 코드는 중복 된 코드가 많다. MyCell 을 변수 자체로 쓸 수 있지 않을까? 그래서 나온게 메타타입이다.
+
+  * 위 문제를 해결해 보자
+
+    ``` swift
+    extension UITableView {
+         /// 전제조건 : cellType의 이름과 같은 xib파일이 있어야 함
+        public func register(_ cellType: UITableViewCell.Type) {
+            let cellClassName = String(describing:cellType)
+            let nib = UINib(nibName: cellClassName, bundle: Bundle(for: cellType))
+            register(nib, forCellReuseIdentifier: cellClassName)
+        }
+
+        public func register(cellTypes: [UITableViewCell.Type]) {
+            cellTypes.forEach { register(cell: $0) }
+        }
     }
 
-    let blog: Medium = Medium()
-    let something = type(of: blog) // Medium은 인스턴스의 타입, Medium.Type은 클래스, 구조체, 프로토콜의 그 자체의 유형
-    ```
+    // 용례
+    tableView.register(MyCell.self)
+    tableView.register([MyCell.self, YourCell.self])
+    ``` 
+
   * 메타타입은 2가지 방법으로 쓰인다.
     * 런타임 시 type(of:)
     * 컴파일 시 (원하는 타입의 이름).self 
@@ -54,8 +84,6 @@
 * Synchronous / Asynchronous (함수의 작업완료를 신경 씀)
   * sync : 동기는 함수를 호출하고 호출된 함수의 작업이 완료된 후의 return 을 기다리거나 return 을 받더라도 호출한 함수가 계속해서 작업완료 여부를 신경씀
   * aysnc : 동기는 함수를 호출할 때 callback 함수를 같이 전달해 작업이 완료되면 callback을 실행. 작업완료를 callback이 신경씀
-
-* Self vs self
 
 * 빌더 패턴을 왜 쓰는가
   * 생성자 인자로 너무 많은 인자가 넘겨 지는 경우 어떠한 인자가 어떤 값을 나타내는지 확인 하기 힘들다. 또 어떠한 인스턴스의 경우에는 특정 인자만 생성해야 하는 케이스가 있는데, 이런 가독성 문제를 해결하기 위함
