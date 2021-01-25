@@ -1,5 +1,27 @@
 # InterViewProject
 
+* oauth : 사원증을 이용해 출입할 수 있는 회사를 생각해 보자. 그런데 외부 손님이 그 회사에 방문할 일이 있다. 회사 사원이 건물에 출입하는 것이 로그인이라면 OAuth는 방문증을 수령한 후 회사에 출입하는 것에 비유할 수 있다. 역시 직접 서비스에 로그인한 사용자와 OAuth를 이용해 권한을 인증받은 사용자는 할 수 있는 일이 다르다. 서비스에 대한 허용 여부에 대해 묻는 경우가 많다.
+
+  ``` swift
+      private func getAuth() {
+          self.authSession = ASWebAuthenticationSession(
+              url: URL(string: CommonURL.authUrl)!,
+              callbackURLScheme: UnsplashInfo.redirect_uri,
+              completionHandler: { (callbackUrl, error) in
+                  guard let callbackUrl = callbackUrl else { return }
+                  let split = callbackUrl.absoluteString.replacingOccurrences(of: "unsplashforkakaopay://unsplash?code=", with: "")
+                  Network.sharedAPI.getAuthToken(code: split) {
+                      self.bindView()
+                  }
+              })
+          if #available(iOS 13.0, *) {
+              self.authSession?.presentationContextProvider = self
+          }
+
+          authSession?.start()
+      }
+  ``` swift
+
 * 물리계층 > 데이터 링크 계층 > 네트워크 > 전송 > 세션 > 프레젠테이션(표현) > 어플리케이션 
 
 * 큐는 dequeue enequeue 스택은 팝 푸쉬 용어 까먹지 말자
