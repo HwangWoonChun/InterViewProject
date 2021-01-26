@@ -1,5 +1,11 @@
 # InterViewProject
 
+* bitcode
+
+* https, http
+
+* json
+
 * 함수형 프로그래밍 
     * 함수를 이용해서 사이드 이펙트 없이, 선언적으로 프로그래밍 하는 것
 
