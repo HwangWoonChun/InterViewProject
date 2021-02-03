@@ -1,5 +1,14 @@
 # InterViewProject
 
+
+* NSOperationQueue, GCD 차이
+
+* 구조체 메모리 값복사 용량 극복 방법
+
+* 오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint 
+
+* 
+
 * bitcode
    * IOS 9에 처음 나오게 되었는데 비트코드를 활성화 하면 32-64bit 등 필요한 디바이스만 최소한 제공하여 앱 용량을 줄여 줄 수 있다.
 
