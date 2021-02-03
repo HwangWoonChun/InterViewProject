@@ -1,5 +1,6 @@
 # InterViewProject
 
+* initalize 방법
 
 * NSOperationQueue, GCD 차이
 
