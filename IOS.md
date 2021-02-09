@@ -1,14 +1,25 @@
 # InterViewProject
 
 * initalize 방법
-
+  * 지정 이니셜라이저(Designated Initializer) : 클래스의 모든 저장 프로퍼티를 초기화 한다.
+  * 편의 이니셜라이저(Convenience Initializer) : 지정 이니셜라이저의 일부 매개 변수의 기본 값을 설정하여 초기화 한다.
+  
+    ``` swift  
+    convenience init(name: name){
+      self.init(name: name, age: 27) // 지정 이니셜라이저 호출
+    }
+    ```
+    
 * NSOperationQueue, GCD 차이
-
-* 구조체 메모리 값복사 용량 극복 방법
+  * 둘의 차이는 GCD는 C API라는 점, NSOperationQueue는 Objective C API 라는 점입니다. 따라서 NSOperationQueue는 좀 더 무겁습니다
+  * GCD 가 못하는 스케쥴 관리등을 NSOpeationQueue 에서 할 수 있지만 GCD는 사용이 간단하다.
 
 * 오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint 
+  * NSLayoutConstraint
+  * NSLayoutAnchor : NSLayoutConstraint 를 쉽게 만들기 위한 팩토리 클래스, 직접 NSLayoutConstraint를 생성하기 보단 제약사항을 걸어 준다.
 
 * swift 의 type safety
+  * Swift는 타입 세이프 언어이기 때문에 사용자가 작성한 코드를 컴파일할 때 타입 검사(type check)를 진행합니다. 그리고 만약 타입이 불일치하는 곳이 있다면 오류를 표시합니다. 이를 통해 사용자는 개발 과정에서 최대한 빠르게 오류를 발견하고 수정할 수 있습니다.
 
 * bitcode
    * IOS 9에 처음 나오게 되었는데 비트코드를 활성화 하면 32-64bit 등 필요한 디바이스만 최소한 제공하여 앱 용량을 줄여 줄 수 있다.
