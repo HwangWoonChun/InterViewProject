@@ -15,8 +15,8 @@
   * GCD 가 못하는 스케쥴 관리등을 NSOpeationQueue 에서 할 수 있지만 GCD는 사용이 간단하다.
 
 * 오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint 
-  * NSLayoutConstraint
-  * NSLayoutAnchor : NSLayoutConstraint 를 쉽게 만들기 위한 팩토리 클래스, 직접 NSLayoutConstraint를 생성하기 보단 제약사항을 걸어 준다.
+  * NSLayoutConstraint : 제약사항을 직접 관리
+  * NSLayoutAnchor : NSLayoutConstraint 를 쉽게 만들기 위한 팩토리 클래스, 직접 NSLayoutConstraint를 생성하기 보단 필요한 뷰에 속성을 통해 제약사항을 걸어 준다.
 
 * swift 의 type safety
   * Swift는 타입 세이프 언어이기 때문에 사용자가 작성한 코드를 컴파일할 때 타입 검사(type check)를 진행합니다. 그리고 만약 타입이 불일치하는 곳이 있다면 오류를 표시합니다. 이를 통해 사용자는 개발 과정에서 최대한 빠르게 오류를 발견하고 수정할 수 있습니다.
