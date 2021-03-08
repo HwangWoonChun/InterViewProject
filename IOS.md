@@ -1,5 +1,7 @@
 # InterViewProject
 
+# 초기화
+
 * initalize 방법
   * 지정 이니셜라이저(Designated Initializer) : 클래스의 모든 저장 프로퍼티를 초기화 한다.
   * 편의 이니셜라이저(Convenience Initializer) : 지정 이니셜라이저의 일부 매개 변수의 기본 값을 설정하여 초기화 한다.
@@ -9,20 +11,25 @@
       self.init(name: name, age: 27) // 지정 이니셜라이저 호출
     }
     ```
-    
+
+# 스레드
+
 * NSOperationQueue, GCD 차이
   * 둘의 차이는 GCD는 C API라는 점, NSOperationQueue는 Objective C API 라는 점입니다. 따라서 NSOperationQueue는 좀 더 무겁습니다
   * GCD 가 못하는 스케쥴 관리등을 NSOpeationQueue 에서 할 수 있지만 GCD는 사용이 간단하다.
+
+
+# UI
 
 * 오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint 
   * NSLayoutConstraint : 제약사항을 직접 관리
   * NSLayoutAnchor : NSLayoutConstraint 를 쉽게 만들기 위한 팩토리 클래스, 직접 NSLayoutConstraint를 생성하기 보단 필요한 뷰에 속성을 통해 제약사항을 걸어 준다.
 
+# Swift
+
 * swift 의 type safety
   * Swift는 타입 세이프 언어이기 때문에 사용자가 작성한 코드를 컴파일할 때 타입 검사(type check)를 진행합니다. 그리고 만약 타입이 불일치하는 곳이 있다면 오류를 표시합니다. 이를 통해 사용자는 개발 과정에서 최대한 빠르게 오류를 발견하고 수정할 수 있습니다.
 
-* bitcode
-   * IOS 9에 처음 나오게 되었는데 비트코드를 활성화 하면 32-64bit 등 필요한 디바이스만 최소한 제공하여 앱 용량을 줄여 줄 수 있다.
 
 * 함수형 프로그래밍 
     * 함수를 이용해서 사이드 이펙트 없이, 선언적으로 프로그래밍 하는 것
@@ -57,16 +64,6 @@
           authSession?.start()
       }
   ```
-
-* 물리계층 > 데이터 링크 계층 > 네트워크 > 전송 > 세션 > 프레젠테이션(표현) > 어플리케이션 
-
-* 큐는 dequeue enequeue 스택은 팝 푸쉬 용어 까먹지 말자
-
-* WWDC2020
-  * IOS 14 Widget 기능 추가
-  
-* WWDC2019
-  * Swift UI
 
 * 메타타입
   * 스위프트는 타입을 아주 중요하게 다루는 언어 어느 정도냐면 심지어 타입에도 타입이 있을 정도, 그리고 이 타입의 타입을 메타타입이라고 부른다. 타입 자체를 변수로 사용 하고 싶을때 유용하게 사용된다.
@@ -136,6 +133,22 @@
 * 그렇다면 대문자 Self vs 소문자 self 는 무엇인가?
    * Self : 대문자로 시작하는 만큼 타입 그 자체를 말한다.
    * self. : 타입 인스턴스에서 자기자신을 나타내는 프로퍼티 이다.
+
+# 배포
+
+* bitcode
+   * IOS 9에 처음 나오게 되었는데 비트코드를 활성화 하면 32-64bit 등 필요한 디바이스만 최소한 제공하여 앱 용량을 줄여 줄 수 있다.
+
+
+# WWDC
+
+* WWDC2020
+  * IOS 14 Widget 기능 추가
+  
+* WWDC2019
+  * Swift UI
+
+
 
 * Strong Reference Cycle(강력 순환 참조)
   * 두 클래스가 있다고 가정하자, A라는 클래스는 B 타입의 프로퍼티를, B라는 클래스는 A 타입의 프로퍼티를 가지고 있다고 할때, A, B 인스턴스를 메모리에 해제시 A, B의 인스턴스에 접근할 인스턴스가 없기 때문에 각 클래스가 들고 있는 프로퍼티에 누수가 발생한다. 해결방법은 weak 인데, 한번더 생각해보자.
