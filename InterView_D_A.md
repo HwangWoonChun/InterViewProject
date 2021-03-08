@@ -1,5 +1,7 @@
 # InterViewProject_자료구조 & 알고리즘
 
+* 큐는 dequeue enequeue 스택은 팝 푸쉬 용어 까먹지 말자
+
 * 자료구조란 무엇인가?
     * 데이터를 효율적으로 저장하기 위한 방법
     
