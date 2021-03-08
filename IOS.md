@@ -267,13 +267,6 @@
 * Swift ui는 왜 구조체를?
   * 프로토콜에 extension 이용 하기 때문에 상속이 필요 없다. 멀티 스레드 환경에서 구조체는 스레드 세이프 하다.
 
-# 기타
-
-* 메소드 스위즐링이 무엇인가?
-  * 런타임이 호출해야하는 메소드나 함수의 구현을 런타임에 결정 하는 기법
-  * dynamic dispatch : Objective-C에서 사용하는 메소드 스위즐링 기법으로 런타임시 클래스의 특정 메소드나 프로퍼티를 호출 할때 해당 객체에 메세지를 보내는 방식으로 구현 되어 있다.  
-  * dynamic 키워드 : Swift 에서 Objective-C 런타임을 쓸게라고 알려주는 키워드
-
 # 클로져
 
 * Escaping Closure 란 무엇인가?
@@ -374,3 +367,13 @@
 * PublishRelay : RxSwift인 Subject와는 다르게 Relay는 RxCocoa의 클래스 입니다. PublishSubject의 특성처럼 구독 이후의 발생하는 이벤트들만 알 수 있습니다.
 
 * ~Subject는 .completed, .error의 이벤트가 발생하면 subscribe가 종료되는 반면, ~Relay는 .completed, .error를 발생하지 않고 Dispose되기 전까지 계속 작동하기 때문에 UI Event에서 사용하기 적절합니다.
+
+* Observable vs Publisher
+  * Publisher는 에러타입 까지 지정해줘야하지만 Observable은 그렇지 않다.
+
+# 기타
+
+* 메소드 스위즐링이 무엇인가?
+  * 런타임이 호출해야하는 메소드나 함수의 구현을 런타임에 결정 하는 기법
+  * dynamic dispatch : Objective-C에서 사용하는 메소드 스위즐링 기법으로 런타임시 클래스의 특정 메소드나 프로퍼티를 호출 할때 해당 객체에 메세지를 보내는 방식으로 구현 되어 있다.  
+  * dynamic 키워드 : Swift 에서 Objective-C 런타임을 쓸게라고 알려주는 키워드
