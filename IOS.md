@@ -2,6 +2,9 @@
 
 # 초기화
 
+* 기본형 타입(Primitive type)
+  * int, string 등의 기본타입
+
 * initalize 방법
   * 지정 이니셜라이저(Designated Initializer) : 클래스의 모든 저장 프로퍼티를 초기화 한다.
   * 편의 이니셜라이저(Convenience Initializer) : 지정 이니셜라이저의 일부 매개 변수의 기본 값을 설정하여 초기화 한다.
