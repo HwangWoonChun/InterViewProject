@@ -15,3 +15,9 @@
 
 * restful api
    * “Representational State Transfer” 의 REST란, "웹에 존재하는 모든 자원(이미지, 동영상, DB 자원)에 고유한 URI를 부여해 활용"하는 것으로, 자원을 정의하고 자원에 대한 주소를 지정하는 방법론을 의미한다고 한다. 따라서 Restful API는 REST 특징을 지키면서 API를 제공하는 것을 의미한다
+
+* URI 
+   * 서버 리소스 이름은 통합 자원 식별자(uniform resource identifier) 혹은 URI라고 불린다.
+
+* URL
+   * URI 중 하나이며 URL은 주소이지 실제 이름이 아니다. 이 뜻은 특정 시점에 어떤 것이 위치한 곳을 알려준다는 것이다. 
