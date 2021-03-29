@@ -347,11 +347,11 @@
   * 의존성 주입 : 내부가 아니라 외부에서 객체를 생성해서 넣어주는 것을 주입한다고 합니다.
   
 * 앱 아키택쳐
-  * MVC : Model, View, Controller 3개 구조로 나누고 사용자 액션 > 컨트롤러 모델 업데이트 > 컨트롤러 모델을 나타내줄 뷰 선택 > 뷰 갱신
+  * MVC : Model, View, Controller 3개 구조로 나누고 컨트롤러가 뷰와 모델에 각각 변경사항 전달 하고 모델이 뷰 업데이트 하도록 
     * View - Model 의 높은 의존성 > 어플리케이션이 커질 수 록 복잡
     * 하나의 컨트롤러에 다양한 뷰와 모델이 존재 할 수 있어 Controller 에 Massive Code 가 많아 질 수 있다.
     
-  * MVP : Model, View, Presenter 3개 구조로 나누고 사용자 액션 > 뷰는 데이터를 Presenter 에게 요청 > Presenter 모델에게 데이터 요청 > 모델 Presenter에게 데이터 전달 > Presenter는 View 에게 데이터 전달 > View 갱신
+  * MVP : Model, View, Presenter 3개 구조로 나누고 프레젠터를 통해 뷰와 모델 업데이트
     * View - Model 의 의존성은 해결, View - Presenter 의 높은 의존성
   
   * MVVM : Model, View, ViewModel 3개 구조로 나누고 사용자 액션 > 뷰는 커맨드 패턴으로 뷰 모델에 액션 전달 > 뷰 모델은 모델에게 데이터 요청 > 모델은 뷰 모델에게 데이터 전달 > 뷰 모델은 데이터 가공 > 뷰는 뷰 모델과 데이터 바인딩하여 화면 갱신
