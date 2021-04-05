@@ -18,8 +18,9 @@
 # 스레드
 
 * NSOperationQueue, GCD 차이
-  * 둘의 차이는 GCD는 C API라는 점, NSOperationQueue는 Objective C API 라는 점입니다. 따라서 NSOperationQueue는 좀 더 무겁습니다
-  * GCD 가 못하는 스케쥴 관리등을 NSOpeationQueue 에서 할 수 있지만 GCD는 사용이 간단하다.
+  * 둘다 멀티 스레딩 처리를 위한 API
+  * GCD : C 기반의 저수준 API / 재개 중지 취소 불가
+  * NSOperation : Objc 기반의 고수준 API / 약간의 오버헤드 / 더 느려 / 재개 중지 취소 가능
 
 * 넌블러킹, 블러킹(관점 : 제어권)
   * 블러킹 - 작업이 완료 되면 제어권을 넘겨 준다.
