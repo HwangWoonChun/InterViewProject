@@ -216,6 +216,18 @@
 
 * codable : json을 특정 타입으로 디코딩, 특정타입을 json으로 인코딩을 지원하는 프로토콜
 
+* assosiated Type : 프로토콜에서 프로퍼티가 다양한 타입을 받도록 해주는 타입
+
+    ``` swift
+    protocol Type {
+
+     associatedtype MyType
+
+     var name: MyType { get }
+    }
+    
+    ```
+ 
 # 어플리케이션
 
 * bitcode
