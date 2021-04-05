@@ -220,10 +220,8 @@
 
     ``` swift
     protocol Type {
-
-     associatedtype MyType
-
-     var name: MyType { get }
+      associatedtype MyType
+      var name: MyType { get }
     }
     
     ```
