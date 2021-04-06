@@ -272,6 +272,39 @@
           self.workItem = workItem // stored in a property
       }
       ```
+      
+    * 뷰컨트롤러를 백버튼으로 deinit 시키면서 테스트 한 케이스, 결론은 뷰컨트롤러의 라이프 사이클에 따라 사용 되지 않아도 된다.
+      
+      * 아래 케이스는 메인스레드 부분이 실행된다.
+
+          ``` swift
+                  DispatchQueue.global(qos: .userInitiated).async {
+                      self.proArray.append("2")
+                      self.proArray.append("3")
+                      Thread.sleep(forTimeInterval: 10)
+
+                      DispatchQueue.main.async {
+                          self.proArray.removeLast()
+                          print(self.proArray)
+                      }
+                  }
+          ```
+
+      * 아래 케이스는 메인스레드 부분이 실행되지 않는다.
+
+          ``` swift
+                  DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                      self?.proArray.append("2")
+                      self?.proArray.append("3")
+                      Thread.sleep(forTimeInterval: 10)
+
+                      DispatchQueue.main.async {
+                          self?.proArray.removeLast()
+                          print(self?.proArray)
+                      }
+                  }
+          ```
+
     
 * [weak self] 써야되는 케이스
   
