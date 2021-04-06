@@ -254,7 +254,9 @@
   * 메소드 파라미터로 전달받은 closure 를 메소드 라이프 사이클에서 끝내지 않고 메소드 밖에서 외부로 전달 하고 싶을 때 사용
 
 * [weak self] 안써도 되는 케이스
+
   * 비 escaping closure
+
     * 강한 참조주기를 도입 할 위험이 없으므로 weak또는 사용을 요구하지 않는다.
 
   * GCD, 애니메이션 호출
@@ -274,7 +276,10 @@
 * [weak self] 써야되는 케이스
   
   * escaping closure + self 프로퍼티에 저장 되는 케이스
-  * escaping closure + 다른 클로저로 넘겨 지는 
+  
+  * escaping closure + 다른 클로저로 넘겨 지는 케이스
+  
+  * 클로져 안에 object 가 strong reference 를 유지
   
 
 * @escaping
