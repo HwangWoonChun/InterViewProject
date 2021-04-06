@@ -324,36 +324,7 @@
   * Responder Chain : 하위 뷰 부터 상위 뷰 까지 동작에 대한 책임을 묻는 디자인패턴
   * 퍼사드 패턴 : 여러 복잡한 서브 클래스가 존재하고 클라이언트 클래스는 이를 직접 접근하지 않고 퍼사드에 접근하여 필요한 것을 사용하는 디자인 패턴
   * 빌더 패턴 : 복잡한 객체의 생성을 그 객체의 표현과 분리하여, 생성 절차는 항상 동일하되 결과는 다르게 만드는 패턴
-
-    ``` swift
-    let labelView: UILabel = {
-       let label = UILabel()
-       label.text = "린생"
-       label.textColor = .black
-       label.font = .systemFont(sizeOf: 20)
-       return label    
-    }()
-    ```
-    
-    ``` swift
-    class Director {
-        func makeLabel(builder: Builder) -> UILabel {
-            let build = builder
-            build.setText(with: "린생")
-            build.setTextColor(with: .black)
-            build.setFontSize(with: 40)
-            return build.label
-        }
-    }
-    //일반
-    let label1 = director.makeLabel(builder: ConCreateBuilder())
-    //체이닝형태
-    private let label2: UILabel = ConCreateBuilder()
-        .setText(with: "린생 2")
-        .setTextColor(with: .red)
-        .setFontSize(with: 30)
-        .label
-    ```
+  * 팩토리 메소드 패턴 : 객체를 생성하기 위한 인터페이스를 정의하는데, 어떤 클래스의 인스턴스를 만들지는 서브클래스에서 결정하게 만든다. 즉 팩토리 메소드 패턴을 이용하면 클래스의 인스턴스를 만드는 일을 서브클래스에게 맡기는 것. 객체 생성 하는 코드를 분리하여 클라이언트 코드와 결합도(의존성)를 낮추어 코드를 건드리는 횟수를 최소화 하기 위한 패턴이다.
     
 # 아키텍쳐
 
