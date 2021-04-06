@@ -218,15 +218,34 @@
   * Instrument Leak 도구
   * deinit 을 통한 로그 체크
 
-# class, struct
-* final을 쓰는 이유 : Swift에서 final키워드를 사용하면 메소드, 프로퍼티, 서브스크립트가 오버라이드를 금지, 상속 방지
+* interface builder 를 통한 변수는 weak? strong?
+  * weak 시 removeFromSuperView() 함수를 호출 하게 되면 메모리에서 사라진다.
+  * strong 시 removeFromSuperView() 함수를 호출 해도 메모리에 남아있는다. 
 
-* 구조체와 클래스 속도 : 어떻게 구성했냐에 따라 다를테지만, 구조체는 스택 영역에 할당되고(컴파일러 영역에 할당) 클래스는 힙 메모리영역에 할당된다.(런타임 영역에 할당) 되어 생성속도는 보통 구조체가 빠르다.
+# class, struct
+
+* class func
+
+  * 타입 메소드로 클래스 틀을 위한 메소드, 상속이 가능하다.
+
+* static func
+
+  * 타입 메소드로 클래스 틀을 위한 메소드, 상속이 불가능하다.
+
+* final
+
+  * Swift에서 final키워드를 사용하면 메소드, 프로퍼티, 서브스크립트가 오버라이드를 금지, 상속 방지
+
+* 구조체와 클래스 속도
+
+  * 어떻게 구성했냐에 따라 다를테지만, 구조체는 스택 영역에 할당되고(컴파일러 영역에 할당) 클래스는 힙 메모리영역에 할당된다.(런타임 영역에 할당) 되어 생성속도는 보통 구조체가 빠르다.
 
 * 클래스와 Struct 차이
+
   * 클래스는 참조타입이고 Struct 는 값 타입이다. 참조타입의 경우 대입 연산시 메모리를 참조하게 되어 원본역시 값이 바뀌며 값 타입의 경우 대입 연산시 값을 복사하게 되어 원본 값이 바뀌지 않는다.
 
 * Swift ui는 왜 구조체를?
+
   * 프로토콜에 extension 이용 하기 때문에 상속이 필요 없다. 멀티 스레드 환경에서 구조체는 스레드 세이프 하다.
 
 # 클로져
@@ -234,11 +253,29 @@
 * Escaping Closure 란 무엇인가?
   * 메소드 파라미터로 전달받은 closure 를 메소드 라이프 사이클에서 끝내지 않고 메소드 밖에서 외부로 전달 하고 싶을 때 사용
 
-* [weak self] 써야되는 이유
-  * 비 escaping closure : 강력한 참조주기를 도입 할 위험이 없으므로 weak또는 사용을 요구하지 않는다.
-  * escaping closure : 클로저는 속성에 저장되거나 다른 클로저로 전달될때, 클로저 내부의 객체 self는 클로저 (또는 전달 된 다른 클로저)에 대한 강력한 참조를 유지합니다.
-  * guard let self = self 의도에 따라 좋거나 나쁠 수있는 경우에 따라 할당 해제가 지연 될 수 있습니다. Guard let이 여기서 실제로하는 일은 self가 nil과 같은지 확인하고 그렇지 않은 경우 범위 기간 동안 self에 대한 일시적인 강력한 참조를 생성하는 것입니다.
-  * GCD 호출은 나중에 실행되도록 저장되지 않는 한 일반적으로 참조주기의 위험을 초래하지 않습니다. 이러한 호출은 즉시 실행되기 때문에 [weak self] 없이도 메모리 누수가 발생하지 않습니다.
+* [weak self] 안써도 되는 케이스
+  * 비 escaping closure
+    * 강한 참조주기를 도입 할 위험이 없으므로 weak또는 사용을 요구하지 않는다.
+
+  * GCD, 애니메이션 호출
+  
+    * GCD는 일반적으로 참조주기의 위험을 초래하지 않기 때문에 쓰지 않는다. async 같은 경우는 바로 리턴 되기 때문에 클로저 내부에 [weak self]를 쓰지 않아도 된다.
+    
+    * 아래처럼 클로져를 self 프로퍼티에 저장 할 경우 [weak self] 를 사용해야 한다.
+    
+      ``` swift
+      func leakyDispatchQueue() {
+          let workItem = DispatchWorkItem { self.view.backgroundColor = .red } //weak self 필요
+          DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: workItem)
+          self.workItem = workItem // stored in a property
+      }
+      ```
+    
+* [weak self] 써야되는 케이스
+  * escaping closure + 내부 self 객체 참조 시
+    * 클로저는 속성에 저장되거나 다른 클로저로 전달될때, 클로저 내부의 객체 self는 클로저 (또는 전달 된 다른 클로저)에 대한 강력한 참조를 유지합니다.
+
+  * closure를 외부 클로저로 전달 할때
 
 * @escaping
   * 함수 종료 시점에 함수 외부에 클로져를 전달 혹은 저장하기 위해 쓰이는 
