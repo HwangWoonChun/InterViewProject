@@ -272,10 +272,10 @@
       ```
     
 * [weak self] 써야되는 케이스
-  * escaping closure + 내부 self 객체 참조 시
-    * 클로저는 속성에 저장되거나 다른 클로저로 전달될때, 클로저 내부의 객체 self는 클로저 (또는 전달 된 다른 클로저)에 대한 강력한 참조를 유지합니다.
-
-  * closure를 외부 클로저로 전달 할때
+  
+  * escaping closure + self 프로퍼티에 저장 되는 케이스
+  * escaping closure + 다른 클로저로 넘겨 지는 
+  
 
 * @escaping
   * 함수 종료 시점에 함수 외부에 클로져를 전달 혹은 저장하기 위해 쓰이는 
