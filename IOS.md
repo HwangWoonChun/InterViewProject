@@ -85,7 +85,7 @@
   
 * 오버라이딩 : 상위 클래스 위에 자신의 메소드를 덮어쓰는 기술
 
-* 오버로딩 : 같은 메소드의 매개변수에 따라 다르게 동작
+* 오버로딩 : 같은 이름의 메서드 여러개를 가지면서 매개변수의 유형과 개수가 다르도록 하는 기술
 
 * 함수형 프로그래밍 
     * 함수형 프로그래밍은 계산을 수학적 함수의 조합으로 생각하는 방식을 말한다. 이것은 일반적인 프로그래밍 언어에서 함수가 특정 동작을 수행하는 역할을 담당하는 것과는 반대되는 개념으로, 함수를 수행해도 함수 외부의 값이 변경될 수 없다.
@@ -108,66 +108,12 @@
 * oauth : 사원증을 이용해 출입할 수 있는 회사를 생각해 보자. 그런데 외부 손님이 그 회사에 방문할 일이 있다. 회사 사원이 건물에 출입하는 것이 로그인이라면 OAuth는 방문증을 수령한 후 회사에 출입하는 것에 비유할 수 있다. 역시 직접 서비스에 로그인한 사용자와 OAuth를 이용해 권한을 인증받은 사용자는 할 수 있는 일이 다르다. 서비스에 대한 허용 여부에 대해 묻는 경우가 많다.
 
   ``` swift
-      private func getAuth() {
-          self.authSession = ASWebAuthenticationSession(
-              url: URL(string: CommonURL.authUrl)!,
-              callbackURLScheme: UnsplashInfo.redirect_uri,
-              completionHandler: { (callbackUrl, error) in
-                  guard let callbackUrl = callbackUrl else { return }
-                  let split = callbackUrl.absoluteString.replacingOccurrences(of: "unsplashforkakaopay://unsplash?code=", with: "")
-                  Network.sharedAPI.getAuthToken(code: split) {
-                      self.bindView()
-                  }
-              })
-          if #available(iOS 13.0, *) {
-              self.authSession?.presentationContextProvider = self
-          }
-
-          authSession?.start()
-      }
+  ASWebAuthenticationSession
   ```
 
 * 메타타입
+
   * 스위프트는 타입을 아주 중요하게 다루는 언어 어느 정도냐면 심지어 타입에도 타입이 있을 정도, 그리고 이 타입의 타입을 메타타입이라고 부른다. 타입 자체를 변수로 사용 하고 싶을때 유용하게 사용된다.
-
-    ``` swift
-    class MyCell: UITableViewCell { ... }
-    // MyCell이란 이름의 xib파일도 있음 
-
-    let myCellNib = UINib(nibName:"MyCell", bundle: nil)
-    tableView.register(myCellNib, forCellReuseIdentifier: "MyCell")
-
-    ---
-
-    class YourCell: UITableViewCell { ... }
-    // YourCell이란 이름의 xib파일도 있음
-    let yourCellNib = UINib(nibName:"YourCell", bundle: nil)
-    tableView.register(yourCellNib, forCellReuseIdentifier: "YourCell")
-
-    // 기타 등등....
-    ```
-  * 위 코드는 중복 된 코드가 많다. MyCell 을 변수 자체로 쓸 수 있지 않을까? 그래서 나온게 메타타입이다.
-
-  * 위 문제를 해결해 보자
-
-    ``` swift
-    extension UITableView {
-         /// 전제조건 : cellType의 이름과 같은 xib파일이 있어야 함
-        public func register(_ cellType: UITableViewCell.Type) {
-            let cellClassName = String(describing:cellType)
-            let nib = UINib(nibName: cellClassName, bundle: Bundle(for: cellType))
-            register(nib, forCellReuseIdentifier: cellClassName)
-        }
-
-        public func register(cellTypes: [UITableViewCell.Type]) {
-            cellTypes.forEach { register(cell: $0) }
-        }
-    }
-
-    // 용례
-    tableView.register(MyCell.self)
-    tableView.register([MyCell.self, YourCell.self])
-    ``` 
 
   * 메타타입은 2가지 방법으로 쓰인다.
     * 런타임 시 type(of:변수)
@@ -175,22 +121,24 @@
     
   * 그렇다면 컴파일과 런타임시에 클래스 접근이 어떻게 다른가?
 
-    ``` swift
-    class SomeBaseClass {
-        class func printClassName() {
-            print("SomeBaseClass")
-        }
-    }
-    class SomeSubClass: SomeBaseClass {
-        override class func printClassName() {
-            print("SomeSubClass")
-        }
-    }
-    
-    let someInstance: SomeBaseClass = SomeSubClass()
-    //컴파일 시 엔 SomeBaseClass 이지만
-    //런타임 시 엔 SomeSubClass 타입 이다.
-    ```
+    * 컴파일 시엔 개발자가 지정한 타입으로 설정되지만 런타임 시엔 메모리에 할당된 타입으로 설정 된다.
+
+      ``` swift
+      class SomeBaseClass {
+          class func printClassName() {
+              print("SomeBaseClass")
+          }
+      }
+      class SomeSubClass: SomeBaseClass {
+          override class func printClassName() {
+              print("SomeSubClass")
+          }
+      }
+
+      let someInstance: SomeBaseClass = SomeSubClass()
+      //컴파일 시 엔 SomeBaseClass 이지만
+      //런타임 시 엔 SomeSubClass 타입 이다.
+      ```
     
 * 그렇다면 대문자 Self vs 소문자 self 는 무엇인가?
    * Self : 자기자신이 아니라 타입 그 자체를 말한다. 
