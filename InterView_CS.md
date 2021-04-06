@@ -1,5 +1,8 @@
 # InterViewProject_Computer Scienece
 
+* 기본형 타입(Primitive type)
+  * int, string 등의 기본타입
+
 * HTTP 와 HTTPS
     * HTTP 는 서로다른 시스템에서 데이터를 전송하고 받는 기본적인 프로토콜
     * HTTPS 는 HTTP의 보안기능이 없는 점을 극복하기 위한 프로토콜이며, SSL 인증서를 통해 사용자가 시스템에 전송하는 데이터를 암호화 한다.
