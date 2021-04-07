@@ -118,12 +118,12 @@
   * 메타타입은 2가지 방법으로 쓰인다.
     * 런타임 시 type(of:변수)
     * 컴파일 시 (원하는 타입의 이름).self 
-    
-  * 그렇다면 컴파일과 런타임시에 클래스 접근이 어떻게 다른가?
 
-    * 컴파일 시엔 개발자가 지정한 타입으로 설정되지만 런타임 시엔 메모리에 할당된 타입으로 설정 된다.
+* 그렇다면 컴파일과 런타임시에 클래스 접근이 어떻게 다른가?
 
-      ``` swift
+  * 컴파일 시엔 개발자가 지정한 타입으로 설정되지만 런타임 시엔 메모리에 할당된 타입으로 설정 된다.
+
+    ``` swift
       class SomeBaseClass {
           class func printClassName() {
               print("SomeBaseClass")
@@ -138,7 +138,7 @@
       let someInstance: SomeBaseClass = SomeSubClass()
       //컴파일 시 엔 SomeBaseClass 이지만
       //런타임 시 엔 SomeSubClass 타입 이다.
-      ```
+    ```
     
 * 그렇다면 대문자 Self vs 소문자 self 는 무엇인가?
    * Self : 자기자신이 아니라 타입 그 자체를 말한다. 
