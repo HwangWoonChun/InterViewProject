@@ -2,7 +2,7 @@
 
 # 초기화
 
-* initalize 방법
+* ~~initalize 방법~~
   * 지정 이니셜라이저(Designated Initializer) : 클래스의 모든 저장 프로퍼티를 초기화 한다.
   * 편의 이니셜라이저(Convenience Initializer) : 지정 이니셜라이저의 일부 매개 변수의 기본 값을 설정하여 초기화 한다.
   
@@ -14,11 +14,11 @@
 
 # 스레드
 
-* 프로세스, 쓰레드
+* ~~프로세스, 쓰레드~~
   * 프로세스는 어떤 프로그램의 단위를 말한다.
   * 쓰레드는 프로세스 안에서의 작업 단위들을 말하며 자원을 서로 공유하며 기능을 수행한다.
 
-* NSOperationQueue, GCD 차이
+* ~~NSOperationQueue, GCD 차이~~
   * 둘다 멀티 스레딩 처리를 위한 API
   * GCD : C 기반의 저수준 API / 재개 중지 취소 불가
   * NSOperation : Objc 기반의 고수준 API / 약간의 오버헤드 / 더 느려 / 재개 중지 취소 가능
@@ -27,53 +27,46 @@
   * 블러킹 - 작업이 완료 되면 제어권을 넘겨 준다.
   * 넌블러킹 - 작업이 완료 되기 전에 제어권을 넘겨 준다.
   
-* Synchronous / Asynchronous (관점 : 처리 시간)
+* ~~Synchronous / Asynchronous (관점 : 처리 시간)~~
   * sync : 호출된 함수의 리턴 시점과 결과 반환 시점이 동일
   * aysnc : 호출된 함수의 리턴 시점과 결과 반환 시점이 동일 하지 않다.
 
-* 세마포어와 뮤텍스
+* ~~세마포어와 뮤텍스~~
   * 세마포어는 공유 자원에 세마포어의 변수만큼의 프로세스(또는 쓰레드)가 접근
   * 반면에 뮤텍스는 오직 1개만의 프로세스(또는 쓰레드)만 접근
 
-* GCD : 운영체제에서 스레드를 직접 관리하는 C 기반의 스레드 API, 작업단위는 클로져이며 DispatchQueue가 이 Block 들을 관리한다.
+* ~~GCD : 운영체제에서 스레드를 직접 관리하는 C 기반의 스레드 API, 작업단위는 클로져이며 DispatchQueue가 이 Block 들을 관리한다.~~
   * DispatchQueue
     * Serial Dispatch Queue : 한 큐에 여러 Task를 넣어 처리
     * Concurrent Dispatch Queue : 여러 스레드에 여러 Task를 시스템이 알아서 넣으며 이를 분산하여 처리
     * sync : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리고 다음일 을 진행
     * async : 작업을 다른 쓰레드에서 하도록 시킨 후 작업이 끝나길 기다리지 않고 다음일 을 진행
-
-* GCD 이전의 멀티스레딩 클래스
-  * NSOperationQueue
-  * NSThread
-
+    
 # UI
 
-* 오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint 
+* ~~오토레이아웃 코드로 짜는 방법 2가지 NSLAayoutcontraint ~~
   * NSLayoutConstraint : 제약사항을 직접 관리
   * NSLayoutAnchor : NSLayoutConstraint 를 쉽게 만들기 위한 팩토리 클래스, 직접 NSLayoutConstraint를 생성하기 보단 필요한 뷰에 속성을 통해 제약사항을 걸어 준다.
 
-* Autolayout priority
+* ~~Autolayout priority~~
   * 오토레이아웃의 제약사항에 대한 우선순위를 말하며 상황에 따라 제약사항들이 부딛힐 때가 있는데 이를 우선순위를 설정하여 충돌을 방지한다. 
  
-* content hugging priority
+* ~~content hugging priority~~
   * 컨텐츠의 고유 사이즈가 스스로 감싸 안아 커지기를 거부한다. priority 가 높을 수록 높이, 폭이 커지는 것을 우선적으로 막는다.
 
-* content compression resistance priority
+* ~~content compression resistance priority~~
   * 컨텐츠의 고유 사이즈가 스스로 감싸 안아 작아지기를 거부한다. priority 가 높을 수록 높이, 폭이 작아지는 것을 우선적으로 막는다.
 
-* clipsToBounds vs maskToBounds
+* ~~clipsToBounds vs maskToBounds~~
   * clipsToBounds : true일때 내용들과 서브뷰들은 뷰의 테두리를 기준으로 잘리게 된다. 기본값은  false
   * maskToBounds : true 일때 서브레이어들은 레이어의 테두를 기준으로 잘리게 된다. 기본값은 false
   
-* layer vs View
+* ~~layer vs View~~
   * layer : 별도의 쓰래드에서 GPU 를 사용해 UI 를 직접 그림
   * view : 메인 쓰레드에서 CPU 를 사용해 UI 를 그림
 
 * 다이나믹, 폰트
   * systemFont 대신 preferredFont 사용하면 시스템 설정에 지정된 폰트대로 다이나믹한 폰트 제공
-
-* CGAffineTransform
-  * 뷰 프레임을 계산하지 않고 2D 그래픽을 그릴 수 있는 구조체
 
 # 객체 지향언어, 프로토콜 지향언어, 함수형 언어
 
