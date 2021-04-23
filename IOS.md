@@ -427,6 +427,10 @@
   * hot 생성과 동시에 이벤트 방출 / Variables, properties, constants, tap coordinates, mouse coordinates, UI control values, current time
   * cold 옵저버가 subscribe 하는 순간 방출 / Async operations, HTTP Connections, TCP connections, streams 
 
+* RxSwift의 로그
+
+* RxSwift의 6.1
+
 # ~~기타~~
 
 * 메소드 스위즐링이 무엇인가?
