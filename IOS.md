@@ -216,6 +216,8 @@
 * ~~메모리 릭 해결 방법~~
   * XCode memory graph
   * Instrument Leak 도구
+    * 잘못된 코드는 메모리 사용량이 점점 증가한다.
+    * 잘못된 코드는 메모리 alloc 부분에 분홍색 표기
   * deinit 을 통한 로그 체크
 
 * ~~interface builder 를 통한 변수는 weak? strong?~~
