@@ -168,6 +168,9 @@
        var name: MyType { get }
     }
     ```
+* flatMap vs compactMap
+  * 공통점은 nil 제거
+  * flatMap은 2차원배열을 1차원배열로 만들어준다.
  
 # 어플리케이션
 
@@ -399,7 +402,7 @@
     * View > Action > Mutate > Mutation > Reduce > State > View
 
 
-# ~~RXSwift~~
+# RXSwift
 
 * reactive programming
   * 비동기 데이터 스트림을 이용한 프로그래밍
