@@ -404,6 +404,8 @@
 * reactive programming
   * 비동기 데이터 스트림을 이용한 프로그래밍
 
+* Observable과 Observer를 만드는 클래스 
+
 * PublishSubject
   * PublishSubject는 .completed, .error이벤트가 발생할때까지, 즉 종료될때까지 subscribe한 이후부터 이벤트를 방출 합니다.
 
@@ -419,9 +421,6 @@
 * ~Subject vs ~Relay 
   * ~Subject 는 .completed, .error의 이벤트가 발생하면 subscribe가 종료되는 반면, 
   * ~Relay 는 .completed, .error를 발생하지 않고 Dispose되기 전까지 계속 작동하기 때문에 UI Event에서 사용하기 적절
-
-* Observable vs Publisher
-  * Publisher는 에러타입 까지 지정해줘야하지만 Observable은 그렇지 않다.
 
 * RxSwift의 hot, cold
   * hot 생성과 동시에 이벤트 방출 / Variables, properties, constants, tap coordinates, mouse coordinates, UI control values, current time
