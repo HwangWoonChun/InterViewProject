@@ -404,7 +404,9 @@
 * reactive programming
   * 비동기 데이터 스트림을 이용한 프로그래밍
 
-* Observable과 Observer를 만드는 클래스 
+* Observable과 Observer를 만드는 클래스
+
+  * Observable은 단 하나의 함수 이기 때문에 계속 create 코드를 반복 사용 하지만, Subject는 관찰자 세부 정보를 저장 하고 코드를 단 한번만 실행하고 모든 관찰자에게 결과를 제공한다.
 
   * PublishSubject
     * PublishSubject는 .completed, .error이벤트가 발생할때까지, 즉 종료될때까지 subscribe한 이후부터 이벤트를 방출 합니다.
