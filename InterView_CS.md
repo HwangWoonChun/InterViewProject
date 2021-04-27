@@ -39,3 +39,6 @@
 * GOF 디자인 패턴
 
 * Robert C Martin Clean Code
+
+* 로티
+  * 어도비의 에프터이팩트로 만든 애니메이션을 JSON 파일로 내보내 주는 플러그인 프로그램
