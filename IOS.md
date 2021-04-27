@@ -427,14 +427,25 @@
   * hot 생성과 동시에 이벤트 방출 / Variables, properties, constants, tap coordinates, mouse coordinates, UI control values, current time
   * cold 옵저버가 subscribe 하는 순간 방출 / Async operations, HTTP Connections, TCP connections, streams 
 
-* RxSwift의 로그
-
 * RxSwift의 6.1
 
-# ~~기타~~
+  * bind 함수가 rxcocoa 에서 rxswift로 변경
+  
+  * withUnretained : 클로저에서 self에 대한 약한 참조를 하고 클로저 안의 코드가 끝까지 실행되는 것을 보장하기 위해 [weak self] 를 쓰는데 코드 간결하게 해줌
+
+    ``` swift
+    viewModel.importantInfo
+      .withUnretained(self) // (Object, Element) 듀플 반환
+      .subscribe(onNext: { owner, info in 
+        owner.doImportantTask(with: info)
+      })
+      .disposed(by: disposeBag)
+    ```
+
+# 기타
 
 * 메소드 스위즐링이 무엇인가?
 
-  * 런타임이 호출해야하는 메소드나 함수의 구현을 런타임에 결정 하는 기법
-  * dynamic dispatch : Objective-C에서 사용하는 메소드 스위즐링 기법으로 런타임시 클래스의 특정 메소드나 프로퍼티를 호출 할때 해당 객체에 메세지를 보내는 방식으로 구현 되어 있다.  
-  * dynamic 키워드 : Swift 에서 Objective-C 런타임을 쓸게라고 알려주는 키워드
+  * 런타임이 호출해야하는 메소드나 함수의 구현을 런타임에 결정 하는 기법 
+  * dynamic var : Swift 에서 Objective-C 런타임을 쓸게라고 알려주는 키워드
+ 
