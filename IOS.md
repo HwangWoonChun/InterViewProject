@@ -170,7 +170,8 @@
     ```
 * flatMap vs compactMap
   * 공통점은 nil 제거
-  * flatMap은 2차원배열을 1차원배열로 만들어준다.
+  * flatMap은 n차원배열을 n-1 차원배열로 만들어준다.
+  * 현재는 flatmap 에서 compactMap 으로 변경
 
 * 가변매개변수
   * 함수의 매개변수 타입 뒤에 ...을 붙여 배열 형태로 받을 수 있는 변수 타입
