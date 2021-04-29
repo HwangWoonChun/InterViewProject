@@ -184,7 +184,8 @@
   * async-await protocol
     * 비동기 통신 프로그래밍을 하다보면 deep-nested closure 가 필요하다.
     * 코루틴 모델을 도입하여 비동기 코드를 마치 동기 코드인 것 처럼 작성
-
+    * async : 이 함수를 비동기 함수로 만들겠다. throws 사용
+    * await : 비동기 함수 호출시 potential suspension point(잠재적인 일시 중단 지점) 지정 try 사용
       ``` swift
           func processImageData1(completionBlock: (_ result: Image) -> Void) {
               loadWebResource("dataprofile.txt") {
