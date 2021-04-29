@@ -179,7 +179,43 @@
 
 * 스위프트 5.4
   * 로컬 함수도 오버로딩이 가능하게 되었다. 
- 
+
+* 스위프트 5.5
+  * async-await protocol
+    * 비동기 통신 프로그래밍을 하다보면 deep-nested closure 가 필요하다.
+    * 코루틴 모델을 도입하여 비동기 코드를 마치 동기 코드인 것 처럼 작성
+
+      ``` swift
+          func processImageData1(completionBlock: (_ result: Image) -> Void) {
+              loadWebResource("dataprofile.txt") {
+                  dataResource in loadWebResource("imagedata.dat") {
+                      imageResource in decodeImage(dataResource, imageResource) {
+                          imageTmp in dewarpAndCleanupImage(imageTmp) {
+                              imageResult in completionBlock(imageResult)
+                          }
+                      }
+                  }
+              }
+              processImageData1 {
+                  image in display(image)
+              }
+          }
+      ```
+
+      ``` swift
+          func loadWebResource(_ path: String) async throws -> Resource
+          func decodeImage(_ r1: Resource, _ r2: Resource) async throws -> Image
+          func dewarpAndCleanupImage(_ i : Image) async throws -> Image
+
+          func processImageData() async throws -> Image {
+              let dataResource = try await loadWebResource("dataprofile.txt")
+              let imageResource = try await loadWebResource("imagedata.dat")
+              let imageTmp = try await decodeImage(dataResource, imageResource)
+              let imageResult = try await dewarpAndCleanupImage(imageTmp)
+              return imageResult
+          }
+      ```
+
 # 어플리케이션
 
 * ~~bitcode~~
