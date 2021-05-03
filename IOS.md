@@ -447,6 +447,8 @@
     * 데이터 바인딩(델리게이트, KVO, Reacitve, Property Observer 등)을 통해 각 클래스는 의존성을 가지지 않는다.
     * 설계가 쉽지는 않다.
 
+  * Viper : View, Interactor(비즈니스 로직), Presenter(뷰, Interactor 데이터 전달), Entity, Router
+
   * ReactorKit : Flux + Reactive Programming 컨샙이며, 사용자 액션 과 뷰 상태를 한 스트림으로 놓고 각각의 계층 view, action, reactor, state 에 옵저버가 전달 해주는 디자인 패턴이다.
     * View > Action > Mutate > Mutation > Reduce > State > View
 
