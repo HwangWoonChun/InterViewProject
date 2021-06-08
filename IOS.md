@@ -229,6 +229,10 @@
 
 # WWDC
 
+* WWDC2021
+  * XCode Cloud : Xcode Cloud로 앱을 자동으로 빌드, 테스트 및 배포하여 변경 사항을 확인하고 고품질 앱을 만듭니다.
+  * async await
+
 * ~~WWDC2020~~
   * IOS 14 Widget 기능 추가
   
