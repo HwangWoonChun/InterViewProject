@@ -270,6 +270,9 @@
   * weak 시 removeFromSuperView() 함수를 호출 하게 되면 메모리에서 사라진다.
   * strong 시 removeFromSuperView() 함수를 호출 해도 메모리에 남아있는다. 
 
+* weak vs unowned
+  * weak 은 객체가 닐이 될떄까지 계속 추적하기때문에 런타임시 오버헤드가 발생할 수 있다. 객체가 확실히 닐이 될 상황이 발생하지 않는다면 unowned 를 사용하도록 하자 
+
 * autorelease pool
   * Non arc 환경에서 풀에 등록되었다가 풀이 없어지면 메모리 해제
   * Arc 에선 strong pointer life cycle에 의해 헤제
