@@ -55,7 +55,7 @@
   * 우선순위가 높으면 내 크기를 유지시킨다. 작으면 크기가 늘어난다. 둘중 하나가 커져야되는 상황이라면 사용
 
 * ~~content compression resistance priority~~
-  * 우선순위가 높으면 내 크기를 유지시킨다. 작으면 크기가 작아진다. 둘중 하나가 작아져야되는 
+  * 우선순위가 높으면 내 크기를 유지시킨다. 작으면 크기가 작아진다. 둘중 하나가 작아져야되는 상황이라면 사용
 
 * ~~clipsToBounds vs maskToBounds~~
   * clipsToBounds : true일때 내용들과 서브뷰들은 뷰의 테두리를 기준으로 잘리게 된다. 기본값은  false
